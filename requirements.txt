@@ -1,0 +1,6 @@
+# LazyMode - Lightweight AI Model for GitHub Issue/PR Markdown Formatting
+# Core dependencies
+numpy>=1.21.0
+
+# Optional: PyTorch for GPU acceleration (not required for CPU-only usage)
+# torch>=2.0.0
