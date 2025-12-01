@@ -226,8 +226,16 @@ class TestLazyModeModel:
         """Test that saving untrained model raises error."""
         model = LazyModeModel(use_gpu=False)
         
-        with pytest.raises(ValueError):
-            model.save("/tmp/test_model.pkl")
+        with tempfile.NamedTemporaryFile(suffix=".pkl", delete=False) as f:
+            temp_path = f.name
+        
+        try:
+            with pytest.raises(ValueError):
+                model.save(temp_path)
+        finally:
+            # Clean up if file was created (shouldn't happen since it raises)
+            if os.path.exists(temp_path):
+                os.unlink(temp_path)
     
     def test_model_evaluate(self, trained_model):
         """Test model evaluation."""

@@ -418,7 +418,8 @@ class LazyModeModel:
         if not self.is_trained:
             raise ValueError("Model must be trained before saving")
         
-        os.makedirs(os.path.dirname(filepath) if os.path.dirname(filepath) else ".", exist_ok=True)
+        dir_path = os.path.dirname(filepath) or "."
+        os.makedirs(dir_path, exist_ok=True)
         
         model_data = {
             "n_neighbors": self.n_neighbors,
@@ -535,7 +536,7 @@ class LazyModeModel:
 
 if __name__ == "__main__":
     # Quick test
-    from data import generate_training_data, prepare_training_pairs
+    from lazymode.data import generate_training_data, prepare_training_pairs
     
     # Generate training data
     data = generate_training_data()

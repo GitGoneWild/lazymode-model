@@ -80,7 +80,8 @@ def train_and_save_model(
     model.train(list(inputs), list(outputs))
     
     # Ensure directory exists
-    os.makedirs(os.path.dirname(filepath) if os.path.dirname(filepath) else ".", exist_ok=True)
+    dir_path = os.path.dirname(filepath) or "."
+    os.makedirs(dir_path, exist_ok=True)
     
     # Save model
     model.save(filepath)

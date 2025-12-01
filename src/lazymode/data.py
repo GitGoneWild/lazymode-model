@@ -1779,7 +1779,8 @@ def save_dataset(data: List[Dict[str, str]], filepath: str) -> None:
         data: List of training examples.
         filepath: Path to save the JSON file.
     """
-    os.makedirs(os.path.dirname(filepath) if os.path.dirname(filepath) else ".", exist_ok=True)
+    dir_path = os.path.dirname(filepath) or "."
+    os.makedirs(dir_path, exist_ok=True)
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
