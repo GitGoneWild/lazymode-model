@@ -1,5 +1,10 @@
 # LazyMode - Lightweight AI Model for GitHub Issue/PR Markdown Formatting
 
+[![CI](https://github.com/GitGoneWild/lazymode-model/actions/workflows/ci.yml/badge.svg)](https://github.com/GitGoneWild/lazymode-model/actions/workflows/ci.yml)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
 LazyMode is a lightweight AI model that transforms raw user input into polished Markdown formatted specifically for GitHub issues or pull requests. It ensures the output follows standard GitHub issue templates with all required sections.
 
 ## Features
@@ -199,8 +204,8 @@ def format_github_issue(raw_input, model=None, use_gpu=True):
 
 ## License
 
-MIT License
+MIT License - see [LICENSE](LICENSE) for details.
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.

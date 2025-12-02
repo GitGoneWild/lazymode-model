@@ -5,10 +5,9 @@ This module provides functions to generate synthetic training data
 and load datasets for training the LazyMode model.
 """
 
-from typing import Dict, List, Tuple
 import json
 import os
-
+from typing import Dict, List, Tuple
 
 # Template patterns for generating training data
 ISSUE_TEMPLATES = [
@@ -46,7 +45,7 @@ The application crashes immediately upon tapping the login button.
 - [ ] Add null checks for login button handler
 - [ ] Implement proper error handling
 - [ ] Add unit tests for login functionality
-- [ ] Test fix on all supported platforms"""
+- [ ] Test fix on all supported platforms""",
     },
     {
         "input": "Database connection times out after 30 seconds",
@@ -81,7 +80,7 @@ Connection timeout after 30000ms
 - [ ] Check network connectivity between app and database
 - [ ] Increase timeout value or implement retry logic
 - [ ] Add connection health checks
-- [ ] Monitor database server performance"""
+- [ ] Monitor database server performance""",
     },
     {
         "input": "User profile picture not loading on homepage",
@@ -116,7 +115,7 @@ Profile pictures show as broken images or placeholders.
 - [ ] Check image CDN connectivity
 - [ ] Review CORS settings for image requests
 - [ ] Implement fallback placeholder image
-- [ ] Add image loading error handling"""
+- [ ] Add image loading error handling""",
     },
     {
         "input": "Search feature returns no results for valid queries",
@@ -151,7 +150,7 @@ Search index not initialized or empty
 - [ ] Check indexing service status
 - [ ] Review search query parsing logic
 - [ ] Implement search result caching
-- [ ] Add search analytics for debugging"""
+- [ ] Add search analytics for debugging""",
     },
     {
         "input": "Payment processing fails with credit card",
@@ -187,7 +186,7 @@ Payment gateway error: Invalid merchant credentials
 - [ ] Check SSL certificate validity
 - [ ] Review payment gateway integration code
 - [ ] Test with payment gateway sandbox
-- [ ] Implement detailed error logging"""
+- [ ] Implement detailed error logging""",
     },
     {
         "input": "Email notifications not being sent",
@@ -223,7 +222,7 @@ SMTP connection refused: Host smtp.example.com:587
 - [ ] Check email service credentials
 - [ ] Review email queue processing
 - [ ] Test email delivery with different providers
-- [ ] Implement email delivery monitoring"""
+- [ ] Implement email delivery monitoring""",
     },
     {
         "input": "File upload fails for files larger than 5MB",
@@ -258,7 +257,7 @@ All files over 5MB fail to upload with a server error.
 - [ ] Update nginx/apache configuration
 - [ ] Implement chunked file upload
 - [ ] Add file size validation on frontend
-- [ ] Improve error messaging for users"""
+- [ ] Improve error messaging for users""",
     },
     {
         "input": "Dark mode colors are incorrect in settings page",
@@ -292,7 +291,7 @@ Some text appears in dark colors on dark backgrounds, making it unreadable.
 - [ ] Fix color contrast issues
 - [ ] Add dark mode styles for settings page
 - [ ] Implement automated contrast checking
-- [ ] Test across all application pages"""
+- [ ] Test across all application pages""",
     },
     {
         "input": "API rate limiting not working correctly",
@@ -326,7 +325,7 @@ Rate limit counter inconsistency detected
 - [ ] Check Redis/cache connection for rate tracking
 - [ ] Fix counter increment logic
 - [ ] Add rate limit status headers
-- [ ] Implement rate limit monitoring dashboard"""
+- [ ] Implement rate limit monitoring dashboard""",
     },
     {
         "input": "Mobile app battery drain issue",
@@ -361,7 +360,7 @@ Battery consumption is 3-5x higher than expected, even when app is in background
 - [ ] Review location service usage
 - [ ] Optimize network polling intervals
 - [ ] Implement proper background task management
-- [ ] Add battery usage analytics"""
+- [ ] Add battery usage analytics""",
     },
     {
         "input": "Login session expires too quickly",
@@ -396,7 +395,7 @@ Session token expired before expected time
 - [ ] Implement sliding session expiration
 - [ ] Add session refresh on user activity
 - [ ] Check token expiration logic
-- [ ] Add session management monitoring"""
+- [ ] Add session management monitoring""",
     },
     {
         "input": "Push notifications not working on iOS",
@@ -431,7 +430,7 @@ APNS connection failed: Invalid certificate
 - [ ] Check iOS bundle identifier configuration
 - [ ] Review push notification payload format
 - [ ] Test with APNS sandbox environment
-- [ ] Implement push delivery logging"""
+- [ ] Implement push delivery logging""",
     },
     {
         "input": "Data export generates corrupted CSV file",
@@ -467,7 +466,7 @@ Character encoding mismatch in export stream
 - [ ] Properly escape special characters
 - [ ] Add CSV header row validation
 - [ ] Implement export file verification
-- [ ] Add download progress indicator"""
+- [ ] Add download progress indicator""",
     },
     {
         "input": "Page load time is very slow more than 10 seconds",
@@ -502,7 +501,7 @@ Page load times regularly exceed 10 seconds.
 - [ ] Optimize API response times
 - [ ] Implement lazy loading for components
 - [ ] Add caching strategies
-- [ ] Set up performance monitoring"""
+- [ ] Set up performance monitoring""",
     },
     {
         "input": "Two-factor authentication SMS codes not received",
@@ -538,7 +537,7 @@ SMS gateway error: Insufficient credits or invalid API key
 - [ ] Check phone number formatting
 - [ ] Review SMS gateway response codes
 - [ ] Implement SMS delivery confirmation
-- [ ] Add backup 2FA methods (TOTP)"""
+- [ ] Add backup 2FA methods (TOTP)""",
     },
 ]
 
@@ -576,7 +575,7 @@ Logout button click has no effect; session remains active.
 - [ ] Verify session invalidation endpoint
 - [ ] Add logout confirmation
 - [ ] Test cross-browser compatibility
-- [ ] Implement proper session cleanup"""
+- [ ] Implement proper session cleanup""",
     },
     {
         "input": "Dropdown menu items are not clickable",
@@ -611,7 +610,7 @@ Menu items are visible but unresponsive to clicks.
 - [ ] Verify event handlers are attached
 - [ ] Fix pointer-events CSS property
 - [ ] Test touch events on mobile
-- [ ] Add keyboard navigation support"""
+- [ ] Add keyboard navigation support""",
     },
     {
         "input": "Password reset link expired immediately",
@@ -646,7 +645,7 @@ Token timestamp validation failed
 - [ ] Review token expiration logic
 - [ ] Extend token validity period
 - [ ] Add token debugging logs
-- [ ] Implement new token request option"""
+- [ ] Implement new token request option""",
     },
     {
         "input": "Calendar events showing wrong timezone",
@@ -680,7 +679,7 @@ Timezone conversion error: UTC offset mismatch
 - [ ] Fix timezone conversion logic
 - [ ] Add timezone indicator to events
 - [ ] Handle daylight saving time correctly
-- [ ] Test across multiple timezones"""
+- [ ] Test across multiple timezones""",
     },
     {
         "input": "Image gallery swipe not smooth on mobile",
@@ -714,7 +713,7 @@ Swipe gestures are choppy with noticeable lag.
 - [ ] Implement hardware-accelerated animations
 - [ ] Reduce image resolution for thumbnails
 - [ ] Add lazy loading for off-screen images
-- [ ] Profile and fix memory leaks"""
+- [ ] Profile and fix memory leaks""",
     },
     {
         "input": "Form validation errors not showing",
@@ -749,7 +748,7 @@ Validation errors generated but not rendered
 - [ ] Style error message components
 - [ ] Add field-level error indicators
 - [ ] Implement form-level error summary
-- [ ] Add accessibility for error messages"""
+- [ ] Add accessibility for error messages""",
     },
     {
         "input": "Audio player stops when phone screen locks",
@@ -783,7 +782,7 @@ Background audio session not configured
 - [ ] Request background execution permissions
 - [ ] Handle audio session interruptions
 - [ ] Add lock screen controls
-- [ ] Test background playback thoroughly"""
+- [ ] Test background playback thoroughly""",
     },
     {
         "input": "Print preview shows blank pages",
@@ -818,7 +817,7 @@ Print preview shows completely blank pages.
 - [ ] Fix content visibility in print mode
 - [ ] Handle page breaks correctly
 - [ ] Remove print-hidden elements
-- [ ] Test across browsers"""
+- [ ] Test across browsers""",
     },
     {
         "input": "Autocomplete suggestions not appearing",
@@ -853,7 +852,7 @@ Autocomplete API request failed or returned empty
 - [ ] Check minimum character trigger
 - [ ] Debug suggestion data fetch
 - [ ] Fix suggestion dropdown rendering
-- [ ] Add loading indicator"""
+- [ ] Add loading indicator""",
     },
     {
         "input": "Infinite scroll loads same items repeatedly",
@@ -888,7 +887,7 @@ Pagination offset not incrementing
 - [ ] Deduplicate loaded items
 - [ ] Add end-of-list detection
 - [ ] Implement proper scroll position tracking
-- [ ] Add loading state indicator"""
+- [ ] Add loading state indicator""",
     },
     {
         "input": "Drag and drop not working on Firefox",
@@ -922,7 +921,7 @@ Drag and drop only works in Chrome, fails in Firefox.
 - [ ] Add Firefox-specific event handling
 - [ ] Use cross-browser drag library
 - [ ] Test on all major browsers
-- [ ] Add browser capability detection"""
+- [ ] Add browser capability detection""",
     },
     {
         "input": "Language selection not persisting",
@@ -956,7 +955,7 @@ Language preference not stored in cookies/storage
 - [ ] Add language cookie for server-side rendering
 - [ ] Sync preference to user profile if logged in
 - [ ] Handle language header from browser
-- [ ] Test preference persistence"""
+- [ ] Test preference persistence""",
     },
     {
         "input": "Progress bar not updating during file upload",
@@ -991,7 +990,7 @@ Progress event handler not attached
 - [ ] Calculate and display percentage
 - [ ] Update progress bar UI
 - [ ] Add upload speed indicator
-- [ ] Implement cancel upload option"""
+- [ ] Implement cancel upload option""",
     },
     {
         "input": "Copy to clipboard not working on Safari",
@@ -1026,7 +1025,7 @@ Clipboard API not permitted in this context
 - [ ] Request clipboard permissions properly
 - [ ] Add Safari-specific clipboard handling
 - [ ] Test on iOS Safari as well
-- [ ] Provide feedback on copy success/failure"""
+- [ ] Provide feedback on copy success/failure""",
     },
     {
         "input": "Modal dialog closes when clicking inside",
@@ -1060,7 +1059,7 @@ Any click inside modal causes it to close.
 - [ ] Separate backdrop and content click handlers
 - [ ] Add proper close button handling
 - [ ] Implement escape key to close
-- [ ] Test modal interaction patterns"""
+- [ ] Test modal interaction patterns""",
     },
     {
         "input": "Video thumbnail not generating for uploads",
@@ -1095,7 +1094,7 @@ FFmpeg thumbnail extraction failed
 - [ ] Check video format compatibility
 - [ ] Handle thumbnail generation errors
 - [ ] Implement manual thumbnail upload option
-- [ ] Add thumbnail generation queue"""
+- [ ] Add thumbnail generation queue""",
     },
     {
         "input": "Chart data labels overlapping",
@@ -1129,7 +1128,7 @@ Multiple labels overlap, obscuring the data.
 - [ ] Add smart label positioning
 - [ ] Use label rotation for dense data
 - [ ] Implement hover-to-show labels
-- [ ] Add zoom functionality for detail view"""
+- [ ] Add zoom functionality for detail view""",
     },
     {
         "input": "Touch ID authentication not prompting",
@@ -1164,7 +1163,7 @@ Biometric authentication not available or not enrolled
 - [ ] Verify biometric preference is saved
 - [ ] Handle biometric API errors
 - [ ] Fall back gracefully to password
-- [ ] Add biometric enrollment guidance"""
+- [ ] Add biometric enrollment guidance""",
     },
     {
         "input": "Webhook notifications delayed by hours",
@@ -1199,7 +1198,7 @@ Webhook queue backlog: 50000+ pending
 - [ ] Implement priority queue for recent events
 - [ ] Add retry mechanism with backoff
 - [ ] Monitor queue depth and latency
-- [ ] Alert on delivery delays"""
+- [ ] Alert on delivery delays""",
     },
     {
         "input": "SSO login redirects to error page",
@@ -1234,7 +1233,7 @@ OAuth callback validation failed: state mismatch
 - [ ] Check state parameter handling
 - [ ] Review identity provider settings
 - [ ] Add detailed error logging
-- [ ] Implement SSO debugging mode"""
+- [ ] Implement SSO debugging mode""",
     },
     {
         "input": "Accessibility screen reader not reading content",
@@ -1268,7 +1267,7 @@ Missing ARIA labels and roles
 - [ ] Fix heading hierarchy
 - [ ] Ensure logical tab order
 - [ ] Add alt text to images
-- [ ] Conduct accessibility audit"""
+- [ ] Conduct accessibility audit""",
     },
     {
         "input": "QR code scanner not focusing camera",
@@ -1303,7 +1302,7 @@ Camera autofocus mode not configured
 - [ ] Add tap-to-focus functionality
 - [ ] Optimize camera settings for scanning
 - [ ] Handle low-light conditions
-- [ ] Add manual focus controls"""
+- [ ] Add manual focus controls""",
     },
     {
         "input": "Exported PDF has missing fonts",
@@ -1338,7 +1337,7 @@ Font embedding failed: license restriction
 - [ ] Use web-safe font fallbacks
 - [ ] Verify font licensing for embedding
 - [ ] Test PDF across different viewers
-- [ ] Add font embedding options"""
+- [ ] Add font embedding options""",
     },
     {
         "input": "Bulk delete only deletes first item",
@@ -1373,7 +1372,7 @@ Bulk delete only processing first ID in array
 - [ ] Pass complete ID array to delete API
 - [ ] Handle partial deletion failures
 - [ ] Add progress indicator for bulk operations
-- [ ] Implement undo for bulk delete"""
+- [ ] Implement undo for bulk delete""",
     },
     {
         "input": "Real-time notifications not updating",
@@ -1408,7 +1407,7 @@ WebSocket connection closed unexpectedly
 - [ ] Implement automatic reconnection
 - [ ] Add connection status indicator
 - [ ] Fall back to polling if WebSocket fails
-- [ ] Test notification delivery reliability"""
+- [ ] Test notification delivery reliability""",
     },
 ]
 
@@ -1446,7 +1445,7 @@ Dates sort alphabetically (e.g., "2" comes after "1" regardless of month).
 - [ ] Use date library for sorting
 - [ ] Handle different date formats
 - [ ] Add sort direction indicators
-- [ ] Test with various date ranges"""
+- [ ] Test with various date ranges""",
     },
     {
         "input": "Memory usage increases over time causing crash",
@@ -1481,7 +1480,7 @@ Out of memory error
 - [ ] Fix object disposal and cleanup
 - [ ] Remove event listener leaks
 - [ ] Implement memory monitoring
-- [ ] Add automatic garbage collection hints"""
+- [ ] Add automatic garbage collection hints""",
     },
     {
         "input": "Filtering combined with pagination shows wrong results",
@@ -1515,7 +1514,7 @@ Filter parameters not passed to pagination query
 - [ ] Reset to page 1 when filters change
 - [ ] Update total count based on filter
 - [ ] Sync filter state with URL params
-- [ ] Add clear filters option"""
+- [ ] Add clear filters option""",
     },
     {
         "input": "Tooltip gets cut off at screen edge",
@@ -1548,7 +1547,7 @@ Tooltips extend beyond visible viewport.
 - [ ] Add smart tooltip positioning
 - [ ] Handle all screen edge cases
 - [ ] Add arrow pointer adjustment
-- [ ] Test on various screen sizes"""
+- [ ] Test on various screen sizes""",
     },
     {
         "input": "Share link generates 404 error",
@@ -1582,7 +1581,7 @@ Share route not registered in router
 - [ ] Verify share link format
 - [ ] Handle expired share links gracefully
 - [ ] Add share link analytics
-- [ ] Test share link generation and access"""
+- [ ] Test share link generation and access""",
     },
     {
         "input": "Comments thread not loading replies",
@@ -1617,7 +1616,7 @@ Nested comments API endpoint returning empty array
 - [ ] Fix nested comment query
 - [ ] Implement lazy loading for replies
 - [ ] Add reply count accuracy
-- [ ] Handle deeply nested threads"""
+- [ ] Handle deeply nested threads""",
     },
     {
         "input": "Multi-select dropdown only allows single selection",
@@ -1652,7 +1651,7 @@ Only one option can be selected at a time.
 - [ ] Show selected items as chips/tags
 - [ ] Add select all / clear all options
 - [ ] Fix form value array handling
-- [ ] Test keyboard multi-select"""
+- [ ] Test keyboard multi-select""",
     },
     {
         "input": "Video playback stutters with buffering",
@@ -1686,7 +1685,7 @@ Buffer underrun, network latency spikes
 - [ ] Increase buffer size
 - [ ] Add preload hints
 - [ ] Monitor and optimize CDN delivery
-- [ ] Show buffer progress indicator"""
+- [ ] Show buffer progress indicator""",
     },
     {
         "input": "Geographic location permission never requested",
@@ -1720,7 +1719,7 @@ Geolocation permission not in required state
 - [ ] Handle permission denial gracefully
 - [ ] Add location permission explanation
 - [ ] Provide manual location entry fallback
-- [ ] Test on all platforms"""
+- [ ] Test on all platforms""",
     },
     {
         "input": "Undo function not working after save",
@@ -1755,7 +1754,7 @@ Undo stack cleared on save operation
 - [ ] Or notify user history will be cleared
 - [ ] Implement version history as alternative
 - [ ] Add redo functionality
-- [ ] Test undo/redo thoroughly"""
+- [ ] Test undo/redo thoroughly""",
     },
 ]
 
@@ -1763,7 +1762,7 @@ Undo stack cleared on save operation
 def generate_training_data() -> List[Dict[str, str]]:
     """
     Generate synthetic training data for the LazyMode model.
-    
+
     Returns:
         List of dictionaries with 'input' and 'output' keys.
     """
@@ -1774,7 +1773,7 @@ def generate_training_data() -> List[Dict[str, str]]:
 def save_dataset(data: List[Dict[str, str]], filepath: str) -> None:
     """
     Save the training dataset to a JSON file.
-    
+
     Args:
         data: List of training examples.
         filepath: Path to save the JSON file.
@@ -1788,24 +1787,24 @@ def save_dataset(data: List[Dict[str, str]], filepath: str) -> None:
 def load_dataset(filepath: str) -> List[Dict[str, str]]:
     """
     Load a training dataset from a JSON file.
-    
+
     Args:
         filepath: Path to the JSON file.
-        
+
     Returns:
         List of training examples.
     """
-    with open(filepath, "r", encoding="utf-8") as f:
+    with open(filepath, encoding="utf-8") as f:
         return json.load(f)
 
 
 def prepare_training_pairs(data: List[Dict[str, str]]) -> List[Tuple[str, str]]:
     """
     Convert dataset into training pairs.
-    
+
     Args:
         data: List of training examples.
-        
+
     Returns:
         List of (input, output) tuples.
     """
@@ -1816,7 +1815,7 @@ if __name__ == "__main__":
     # Generate and save training data
     training_data = generate_training_data()
     print(f"Generated {len(training_data)} training examples")
-    
+
     # Save to file
     save_dataset(training_data, "data/training_data.json")
     print("Training data saved to data/training_data.json")

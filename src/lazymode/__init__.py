@@ -7,9 +7,9 @@ into polished Markdown formatted specifically for GitHub issues or pull requests
 
 __version__ = "0.1.0"
 
-from .model import LazyModeModel
-from .inference import format_github_issue, load_model
 from .data import generate_training_data, load_dataset
+from .inference import format_github_issue, load_model
+from .model import LazyModeModel
 
 __all__ = [
     "LazyModeModel",
