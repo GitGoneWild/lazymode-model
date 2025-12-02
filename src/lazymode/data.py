@@ -1795,7 +1795,8 @@ def load_dataset(filepath: str) -> List[Dict[str, str]]:
         List of training examples.
     """
     with open(filepath, encoding="utf-8") as f:
-        return json.load(f)
+        data: List[Dict[str, str]] = json.load(f)
+        return data
 
 
 def prepare_training_pairs(data: List[Dict[str, str]]) -> List[Tuple[str, str]]:

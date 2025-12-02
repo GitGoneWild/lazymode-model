@@ -1,7 +1,7 @@
 # LazyMode - Lightweight AI Model for GitHub Issue/PR Markdown Formatting
 
 [![CI](https://github.com/GitGoneWild/lazymode-model/actions/workflows/ci.yml/badge.svg)](https://github.com/GitGoneWild/lazymode-model/actions/workflows/ci.yml)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code style: ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
@@ -138,7 +138,7 @@ lazymode-model/
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.9+
 - NumPy >= 1.21.0
 - (Optional) PyTorch >= 2.0.0 for GPU acceleration
 
