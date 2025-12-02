@@ -96,7 +96,7 @@ class TextVectorizer:
         if not self.fitted:
             raise ValueError("Vectorizer must be fitted before transform")
 
-        vectors = np.zeros((len(texts), len(self.vocabulary)))
+        vectors: np.ndarray = np.zeros((len(texts), len(self.vocabulary)))
 
         for i, text in enumerate(texts):
             tokens = self._tokenize(text)
@@ -432,6 +432,10 @@ class LazyModeModel:
         """
         Load a trained model from a file.
 
+        Warning:
+            Only load model files from trusted sources. Pickle files can
+            contain arbitrary code that will be executed during loading.
+
         Args:
             filepath: Path to the saved model.
             use_gpu: Whether to use GPU if available.
@@ -440,7 +444,7 @@ class LazyModeModel:
             Loaded LazyModeModel instance.
         """
         with open(filepath, "rb") as f:
-            model_data = pickle.load(f)
+            model_data = pickle.load(f)  # noqa: S301
 
         model = cls(
             n_neighbors=model_data["n_neighbors"],
