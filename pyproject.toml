@@ -1,0 +1,107 @@
+[project]
+name = "lazymode"
+version = "0.1.0"
+description = "Lightweight AI Model for GitHub Issue/PR Markdown Formatting"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "LazyMode Contributors"}
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+
+dependencies = [
+    "numpy>=1.21.0",
+]
+
+[project.optional-dependencies]
+gpu = ["torch>=2.0.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/GitGoneWild/lazymode-model"
+Repository = "https://github.com/GitGoneWild/lazymode-model"
+Issues = "https://github.com/GitGoneWild/lazymode-model/issues"
+
+[project.scripts]
+lazymode-train = "lazymode.train:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # Pyflakes
+    "I",      # isort
+    "B",      # flake8-bugbear
+    "C4",     # flake8-comprehensions
+    "UP",     # pyupgrade
+    "SIM",    # flake8-simplify
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+    "B008",   # do not perform function calls in argument defaults
+    "C901",   # too complex
+    "SIM108", # use ternary operator
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011", "S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+python_files = "test_*.py"
+python_functions = "test_*"
+python_classes = "Test*"
+
+[tool.coverage.run]
+source = ["src/lazymode"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
